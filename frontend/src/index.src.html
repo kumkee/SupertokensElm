@@ -5,12 +5,27 @@
     <!-- this solve mobile viewing problem -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js/bundle/website.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js/bundle/supertokens.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js/bundle/session.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/supertokens/supertokens-web-js/bundle/thirdpartyemailpassword.js"></script>
     <title>Login</title>
   </head>
   <body>
     <div id="app"></div>
     <script src="app.min.js"></script>
     <script>
+      supertokens.init({
+        appInfo: {
+          apiDomain: "https://db.kumkee.net",
+          apiBasePath: "/auth",
+          appName: "...",
+        },
+        recipeList: [
+          supertokensSession.init(),
+          supertokensThirdPartyEmailPassword.init(),
+        ],
+      });
       Elm.Main.init({node: document.getElementById("app")});
     </script>
   </body>
