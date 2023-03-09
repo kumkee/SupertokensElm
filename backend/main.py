@@ -4,7 +4,7 @@ from supertokens_python.recipe import session, thirdpartyemailpassword
 init(
     app_info=InputAppInfo(
         app_name='stlogin',
-        api_domain='https://xxxxx.deta.space',
+        api_domain='https://stokensdemo-1-z8458742.deta.app/',
         website_domain='http://localhost',
         api_base_path='/auth',
         website_base_path='/auth',
