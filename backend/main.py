@@ -31,27 +31,22 @@ init(
     recipe_list=[
         session.init(),  # initializes session features
         thirdpartyemailpassword.init(
-            # TODO: See next step
+            # Inside init
+            providers=[
+                # We have provided you with development keys which you can use for testing.
+                # IMPORTANT: Please replace them with your own OAuth keys for production use.
+                Google(
+                    client_id='327020114390-ggc01io6rm7o7h5k772kgon9nd3mch8k'
+                    + '.apps.googleusercontent.com',
+                    client_secret=GOOGLE_0AUTH_CLIENT_SECRET
+                    # ), Facebook(
+                    #     client_id='FACEBOOK_CLIENT_ID',
+                    #     client_secret='FACEBOOK_CLIENT_SECRET'
+                ),
+            ]
         ),
     ],
     mode='asgi',  # use wsgi if you are running using gunicorn
-)
-
-
-# Inside init
-thirdpartyemailpassword.init(
-    providers=[
-        # We have provided you with development keys which you can use for testing.
-        # IMPORTANT: Please replace them with your own OAuth keys for production use.
-        Google(
-            client_id='327020114390-ggc01io6rm7o7h5k772kgon9nd3mch8k'
-            + '.apps.googleusercontent.com',
-            client_secret=GOOGLE_0AUTH_CLIENT_SECRET
-            # ), Facebook(
-            #     client_id='FACEBOOK_CLIENT_ID',
-            #     client_secret='FACEBOOK_CLIENT_SECRET'
-        ),
-    ]
 )
 
 
