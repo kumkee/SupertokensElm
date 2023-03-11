@@ -46,7 +46,7 @@ init(
             ]
         ),
     ],
-    mode='asgi',  # use wsgi if you are running using gunicorn
+    mode='wsgi',  # use wsgi if you are running using gunicorn
 )
 
 
@@ -64,3 +64,9 @@ app.add_middleware(
 )
 
 # TODO: start server
+
+
+@app.get('/')
+async def root():
+    """Return dummy message."""
+    return {'message': 'Hello World'}
