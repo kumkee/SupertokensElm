@@ -16,7 +16,7 @@ from supertokens_python.recipe.thirdpartyemailpassword import Google
 init(
     app_info=InputAppInfo(
         app_name='stlogin',
-        api_domain='https://stokensdemo-1-z8458742.deta.app/',
+        api_domain='http://localhost:8000/',
         website_domain='http://localhost',
         api_base_path='/auth',
         website_base_path='/auth',
@@ -46,7 +46,7 @@ init(
             ]
         ),
     ],
-    mode='wsgi',  # use wsgi if you are running using gunicorn
+    mode='asgi',  # use wsgi if you are running using gunicorn
 )
 
 
