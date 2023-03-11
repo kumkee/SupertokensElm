@@ -1,7 +1,7 @@
 """Backend linking to SuperTokens core."""
 
 from fastapi import FastAPI
-from secrect_strs import SUPERTOKENS_API
+from secrect_strs import SUPERTOKENS_API, DASHBOARD_API
 from starlette.middleware.cors import CORSMiddleware
 from supertokens_python import (
     get_all_cors_headers,
@@ -10,7 +10,7 @@ from supertokens_python import (
     SupertokensConfig,
 )
 from supertokens_python.framework.fastapi import get_middleware
-from supertokens_python.recipe import passwordless, session
+from supertokens_python.recipe import passwordless, session, dashboard
 
 from supertokens_python.recipe.passwordless import ContactEmailOnlyConfig
 
@@ -35,6 +35,7 @@ init(
             flow_type='USER_INPUT_CODE_AND_MAGIC_LINK',
             contact_config=ContactEmailOnlyConfig(),
         ),
+        dashboard.init(api_key=DASHBOARD_API),
     ],
     mode='asgi',  # use wsgi if you are running using gunicorn
 )
