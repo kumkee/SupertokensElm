@@ -14,21 +14,6 @@ from supertokens_python.recipe import passwordless, session
 
 from supertokens_python.recipe.passwordless import ContactEmailOnlyConfig
 
-app = FastAPI()
-app.add_middleware(get_middleware())
-
-# TODO: Add APIs
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=['http://localhost'],
-    allow_credentials=True,
-    allow_methods=['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS', 'PATCH'],
-    allow_headers=['Content-Type'] + get_all_cors_headers(),
-)
-
-# TODO: start server
-
 init(
     app_info=InputAppInfo(
         app_name='stlogin',
@@ -54,3 +39,17 @@ init(
     mode='asgi',  # use wsgi if you are running using gunicorn
 )
 
+app = FastAPI()
+app.add_middleware(get_middleware())
+
+# TODO: Add APIs
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['http://localhost'],
+    allow_credentials=True,
+    allow_methods=['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS', 'PATCH'],
+    allow_headers=['Content-Type'] + get_all_cors_headers(),
+)
+
+# TODO: start server
