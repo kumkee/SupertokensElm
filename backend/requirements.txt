@@ -1,2 +1,4 @@
 fastapi
 supertokens-python
+uvicorn[standard]
+gunicorn

@@ -1,7 +1,7 @@
 """Backend linking to SuperTokens core."""
 
 from fastapi import FastAPI
-from secrect_strs import SUPERTOKENS_API, DASHBOARD_API
+from secrect_strs import DASHBOARD_API, SUPERTOKENS_API
 from starlette.middleware.cors import CORSMiddleware
 from supertokens_python import (
     get_all_cors_headers,
@@ -10,14 +10,15 @@ from supertokens_python import (
     SupertokensConfig,
 )
 from supertokens_python.framework.fastapi import get_middleware
-from supertokens_python.recipe import passwordless, session, dashboard
+from supertokens_python.recipe import dashboard, passwordless, session
 
 from supertokens_python.recipe.passwordless import ContactEmailOnlyConfig
 
 init(
     app_info=InputAppInfo(
         app_name='stlogin',
-        api_domain='http://localhost:8000',
+        # api_domain='http://localhost:8000',  # for local deployment
+        api_domain='https://stokensdemo-1-z8458742.deta.app/',  # deta sever
         website_domain='http://localhost',
         api_base_path='/auth',
         website_base_path='/auth',
@@ -37,7 +38,7 @@ init(
         ),
         dashboard.init(api_key=DASHBOARD_API),
     ],
-    mode='asgi',  # use wsgi if you are running using gunicorn
+    mode='wsgi',  # use wsgi if you are running using gunicorn asgi for local deployment
 )
 
 app = FastAPI()
