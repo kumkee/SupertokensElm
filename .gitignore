@@ -136,3 +136,5 @@ dmypy.json
 .space
 
 secrect_strs.py
+
+dist
